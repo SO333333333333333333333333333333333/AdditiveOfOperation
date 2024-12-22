@@ -13,8 +13,7 @@ void PrintS(int a[MaxR][MaxC])//置換aを表示
     printf("\n");
     for (i = 0; i < a[NumC1][NumC2]; i++)
         printf("%3d ", a[1][i]);
-    printf("\n");
-    printf("%3d\n\n", a[NumC1][NumC2]);
+    printf("(%dcolumns)\n\n", a[NumC1][NumC2]);
 }
 
 void Subs(int b[MaxR][MaxC], int a[MaxR][MaxC])//置換bに置換aを代入
@@ -27,7 +26,7 @@ void Subs(int b[MaxR][MaxC], int a[MaxR][MaxC])//置換bに置換aを代入
     b[NumC1][NumC2] = a[NumC1][NumC2];
 }
 
-void ActSucc(int R[MaxR][MaxC], int a[MaxR][MaxC])//R = Succ◦a◦Succ⁻¹
+void ActSuccInv(int R[MaxR][MaxC], int a[MaxR][MaxC])//R = a^(Succ⁻¹) = Succ◦a◦Succ⁻¹
 {
     int i;
     for (i = 0; i < a[NumC1][NumC2]; i++)
@@ -114,30 +113,38 @@ void Sort(int R[MaxR][MaxC])//上の数を昇順にソート
     }
 }
 
-void AdditiveOf(int R[MaxR][MaxC], int a[MaxR][MaxC])
+void AdditiveOf(int R[MaxR][MaxC], int a[MaxR][MaxC])//R = a◦Succ◦a◦Succ⁻¹
 {
     int temp1[MaxR][MaxC];
     int temp2[MaxR][MaxC];
     Inv(temp1, a);
-    ActSucc(temp2, temp1);
+    ActSuccInv(temp2, temp1);
     CyclicProd(R, a, temp2);
 }
 
-void RightSucc(int R[MaxR][MaxC])//R = a◦Succ
+void RightSucc(int R[MaxR][MaxC])//R = R◦Succ
 {
     int i;
     for (i = 0; i < R[NumC1][NumC2]; i++)
         R[0][i] = R[0][i]-1;
 }
 
+void RightSuccInv(int R[MaxR][MaxC])//R = R◦Succ⁻¹
+{
+    int i;
+    for (i = 0; i < R[NumC1][NumC2]; i++)
+        R[0][i] = R[0][i]+1;
+}
+
 int main(void)
 {
     int a[MaxR][MaxC] =
     {
-        {2, 3, 4, 5, 6, 7},//a◦Succ(n) = 5☆n ただし何もない部分はそのままであることを表す
+        {1, 2, 3, 4, 5, 6},//a(n) = 5☆n ただし何もない部分は+1することを表す
         {5, 2, 3, 4, 7, 6}
     };
-    a[NumC1][NumC2] = 6;//行列aの列の数は6
+    a[NumC1][NumC2] = 6;//行列aの列の数
+    RightSuccInv(a);
     int b[MaxR][MaxC];
     int i;
     for (i = 0; i < 100; i++)//100回additiveをとるのを繰り返している
