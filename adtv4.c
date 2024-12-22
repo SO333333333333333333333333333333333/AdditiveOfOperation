@@ -137,16 +137,16 @@ int main(void)
         {2, 3, 4, 5, 6, 7},
         {5, 2, 3, 4, 7, 6}
     };
-    a[NumC1][NumC2] = 6;
+    a[NumC1][NumC2] = 6;//a◦Succ(n) = 5☆n
     int b[MaxR][MaxC];
     int i;
-    for (i = 0; i < 100; i++)
+    for (i = 0; i < 100; i++)//100回additiveをとるのを繰り返している
     {
         AdditiveOf(b, a);
         Subs(a, b);
     }
     RightSucc(b);
     Sort(b);
-    PrintS(b);
+    PrintS(b);//b◦Succ(n) = 5☆⁽⁻¹⁰⁰⁾n
     return 0;
 }
