@@ -134,10 +134,10 @@ int main(void)
 {
     int a[MaxR][MaxC] =
     {
-        {2, 3, 4, 5, 6, 7},
+        {2, 3, 4, 5, 6, 7},//a◦Succ(n) = 5☆n 何もない部分はそのままの置換
         {5, 2, 3, 4, 7, 6}
     };
-    a[NumC1][NumC2] = 6;//a◦Succ(n) = 5☆n
+    a[NumC1][NumC2] = 6;//行列aの列の数は6
     int b[MaxR][MaxC];
     int i;
     for (i = 0; i < 100; i++)//100回additiveをとるのを繰り返している
@@ -147,6 +147,6 @@ int main(void)
     }
     RightSucc(b);
     Sort(b);
-    PrintS(b);//b(n) = 5☆⁽⁻¹⁰⁰⁾n
+    PrintS(b);//b(n) = 5☆⁽⁻¹⁰⁰⁾n 何もない部分は+1する置換
     return 0;
 }
