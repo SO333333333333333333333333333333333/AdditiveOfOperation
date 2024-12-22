@@ -114,7 +114,7 @@ void Sort(int R[MaxR][MaxC])//上の数を昇順にソート
     }
 }
 
-void AdditiveOf(int R[MaxR][MaxC], int a[MaxR][MaxC])//R = a◦Succ
+void AdditiveOf(int R[MaxR][MaxC], int a[MaxR][MaxC])
 {
     int temp1[MaxR][MaxC];
     int temp2[MaxR][MaxC];
@@ -123,7 +123,7 @@ void AdditiveOf(int R[MaxR][MaxC], int a[MaxR][MaxC])//R = a◦Succ
     CyclicProd(R, a, temp2);
 }
 
-void RightSucc(int R[MaxR][MaxC])
+void RightSucc(int R[MaxR][MaxC])//R = a◦Succ
 {
     int i;
     for (i = 0; i < R[NumC1][NumC2]; i++)
