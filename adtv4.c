@@ -147,6 +147,6 @@ int main(void)
     }
     RightSucc(b);
     Sort(b);
-    PrintS(b);//b◦Succ(n) = 5☆⁽⁻¹⁰⁰⁾n
+    PrintS(b);//b(n) = 5☆⁽⁻¹⁰⁰⁾n
     return 0;
 }
