@@ -81,7 +81,7 @@ void MultiplicativeOf(int A[MaxR][MaxC])//↖に詳細 n↦A(n) = n↦A⁽¹⁾(
     }
 }
 
-void ActSuccInv(int a[MaxR][MaxC])//a = a^(Succ⁻¹) = Succ◦a◦Succ⁻¹
+void ActSuccInv(int a[MaxR][MaxC])//a = a^(Succ⁻¹) すなわち Succ◦a◦Succ⁻¹
 {
     int i;
     for (i = 0; i < a[NumC1][NumC2]; i++)
