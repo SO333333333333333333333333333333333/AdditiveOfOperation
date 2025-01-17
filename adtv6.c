@@ -54,7 +54,7 @@ a(1) a(2) a(3) … a(n)
 の形にしてください
 戻り値は置換とは限らないので常に繰り返し適用できるわけではないです
 */
-void MultiplicativeOf(int A[MaxR][MaxC])//↖に詳細 n↦A(n) = n↦A⁽¹⁾(n) = n↦Aⁿ(1)
+void MultiplicativeOf(int A[MaxR][MaxC])//↖に詳細 n↦A(n) = n↦A⁽¹⁾(n) すなわち n↦Aⁿ(1)
 {
     int i, j;
     int temp[A[NumC1][NumC2]];
